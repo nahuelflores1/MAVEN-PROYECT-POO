@@ -18,10 +18,12 @@ create table nota (
 );
 create database instituto;
 use instituto;
-create table alumno(
+create table ingresar_alumno(
 						legajo int,
 						nombre varchar(30),
 						apellido varchar(30),
 						promedio int (50) ,
 						primary key (legajo)
 );
+
+

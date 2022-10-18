@@ -2,15 +2,16 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+
 public class ConectarBD {
     public static Connection con;
-    private static String bd = "tienda";
+    private static String bd = "instituto";
     public static String usuario = "root";
-    public static String passv = "ueadb01";
+    public static String passv = "";
     public static String url = "jdbc:mysql//localhost/"+bd;
 public static Connection abrir(){
     try{
-    Class.forName("com.mysql.jdbc.Driver");
+    Class.forName("com.mysql.cj.jdbc.Driver");
     con = DriverManager.getConnection(url,usuario,passv);
     } catch(Exception e){
     System.out.println("Error en la conexion...");

@@ -16,6 +16,7 @@ public class Alumno {
     }
 
     public Alumno(int legajo, String nombre, String apellido, double promedio) {
+        this.legajo = legajo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.promedio = promedio;

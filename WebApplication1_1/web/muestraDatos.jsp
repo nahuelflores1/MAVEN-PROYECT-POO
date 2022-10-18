@@ -24,6 +24,7 @@
                 <td aling="right">Y tu promedio es: </td>
                 <td> <%= al.getPromedio() %> </td>
             </tr>
+                      
         </table>
             <form action="index.jsp" method="post">
                 <button type="submit">volver</button>

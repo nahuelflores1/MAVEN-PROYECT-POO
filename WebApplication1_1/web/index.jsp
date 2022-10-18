@@ -22,6 +22,10 @@
                 <td>Promedio</td>
                 <td><input type="text" name="promedio"> <td/> 
             </tr>
+            <tr>
+                <td>Legajo</td>
+                <td><input type="text" name="legajo"> <td/> 
+            </tr>
         </table>
             <button type="reset"> Borrar</button>
             <button type="submit"> Enviar</button> 

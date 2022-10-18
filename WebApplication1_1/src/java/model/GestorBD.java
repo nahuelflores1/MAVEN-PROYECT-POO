@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.sql.Connection;
@@ -10,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
         
 public class GestorBD {
     Connection conn = null;
@@ -21,30 +18,31 @@ public class GestorBD {
     Double promedio;
     Alumno alEncontrado;
     
-  public boolean registrar(String nombre,String apellido,Double promedio){
+  public boolean registrar(int legajo, String nombre,String apellido,Double promedio){
 int resultUpdate=0;
  try{
-     conn = ConectarBD.abrir();
-     stm = conn.createStatement();
-     String sql="INSERT INTO Alumno(nombre,apellido,promedio) values('"+nombre+"', '"+apellido+"', "+promedio+")";
-     
-     resultUpdate = stm.executeUpdate(sql);
-      if(resultUpdate !=0){
-         ConectarBD.cerrar();
-         return true;
-         
+    conn = ConectarBD.abrir();
+    stm = conn.createStatement();
+    String sql = "call ingresar_Alumno("+legajo+",'"+nombre+"', '"+apellido+"', "+promedio+")";
+    JOptionPane.showMessageDialog(null, sql);
+    resultUpdate = stm.executeUpdate(sql);
+    JOptionPane.showMessageDialog(null, resultUpdate);
+    
+    if(resultUpdate !=0){
+        ConectarBD.cerrar();
+        return true;
     }else{
         ConectarBD.cerrar();
         return false;
     }
- } catch(Exception e){
-   System.out.println("Error en la Base de Datos");
-   e.printStackTrace();
-   return false;
-   
-    }
-  } 
-  
+   }catch(Exception e){
+      System.out.println("Error en la bd");
+      JOptionPane.showMessageDialog(null, e );
+      e.printStackTrace();
+    return false;
+    } 
+    
+}
   public Alumno consultar(int legajo){
       try{
           conn=ConectarBD.abrir();
