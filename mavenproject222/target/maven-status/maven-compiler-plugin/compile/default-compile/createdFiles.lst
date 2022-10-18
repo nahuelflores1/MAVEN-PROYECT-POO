@@ -1,0 +1,4 @@
+controller\registro.class
+model\Alumno.class
+model\GestorBD.class
+model\ConetarBD.class
